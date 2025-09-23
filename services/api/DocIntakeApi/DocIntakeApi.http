@@ -1,6 +1,19 @@
-@DocIntakeApi_HostAddress = http://localhost:5055
+@DocIntakeApi_HostAddress = http://localhost:5164
 
-GET {{DocIntakeApi_HostAddress}}/weatherforecast/
+### Health Check
+GET {{DocIntakeApi_HostAddress}}/healthz
 Accept: application/json
+
+###
+
+### Generate Presigned URL
+POST {{DocIntakeApi_HostAddress}}/presign
+Content-Type: application/json
+
+{
+  "fileName": "test-document.pdf",
+  "fileType": "application/pdf",
+  "fileSize": 1024000
+}
 
 ###
